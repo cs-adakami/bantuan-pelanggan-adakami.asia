@@ -112,6 +112,16 @@ header p {
   }
 }
 
+/* Logo AdaKami - Global */
+.logo-image {
+  width: 260px;
+  max-width: 90%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Hero Content - DEFAULT: Desktop Layout (2 columns) */
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -200,6 +210,7 @@ header p {
   pointer-events: none;
 }
 
+/* TABLET & MOBILE RESPONSIVE - max-width: 768px */
 @media (max-width: 768px) {
   .hero-content {
     grid-template-columns: 1fr;
@@ -221,6 +232,27 @@ header p {
   .hero-accent {
     width: 200px;
     height: 200px;
+  }
+
+  .card-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  header h1 {
+    font-size: 1.75rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .glass-card {
+    padding: 1.5rem;
   }
 }
 
@@ -257,34 +289,11 @@ main {
   }
 }
 
-/* Content Grid */
+/* Content Grid - DEFAULT: Desktop Layout (2 columns) */
 .card-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-}
-
-@media (max-width: 768px) {
-  .card-content {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  header h1 {
-    font-size: 1.75rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  .glass-card {
-    padding: 1.5rem;
-  }
 }
 
 /* Menu Grid */
@@ -524,40 +533,6 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
-  .floating-whatsapp {
-    bottom: 1.5rem;
-    right: 1.5rem;
-  }
-
-  .floating-whatsapp .btn {
-    width: 60px;
-    height: 60px;
-  }
-
-  .floating-whatsapp .btn svg {
-    width: 28px;
-    height: 28px;
-  }
-}
-
-@media (max-width: 480px) {
-  .floating-whatsapp {
-    bottom: 1rem;
-    right: 1rem;
-  }
-
-  .floating-whatsapp .btn {
-    width: 56px;
-    height: 56px;
-  }
-
-  .floating-whatsapp .btn svg {
-    width: 24px;
-    height: 24px;
-  }
-}
-
 /* Logo Animation */
 .logo-mark {
   animation: logoFloat 3s ease-in-out infinite;
@@ -572,7 +547,11 @@ footer {
   }
 }
 
-/* Accessibility & Responsive */
+/* ============ MOBILE RESPONSIVE BREAKPOINTS ============ */
+
+/* Tablet (max-width: 768px) - Already defined above */
+
+/* Small Devices (max-width: 640px) */
 @media (max-width: 640px) {
   header {
     padding: 1rem;
@@ -598,6 +577,39 @@ footer {
     padding: 0.65rem 1.25rem;
     font-size: 0.875rem;
   }
+
+  .floating-whatsapp {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .floating-whatsapp .btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  .floating-whatsapp .btn svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Extra Small Devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .floating-whatsapp {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .floating-whatsapp .btn {
+    width: 56px;
+    height: 56px;
+  }
+
+  .floating-whatsapp .btn svg {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 /* Focus States for Keyboard Navigation */
@@ -607,7 +619,7 @@ footer {
   outline-offset: 2px;
 }
 
-/* Dark Mode Support (Optional) */
+/* ============ DARK MODE SUPPORT ============ */
 @media (prefers-color-scheme: dark) {
   body {
     background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
@@ -656,41 +668,5 @@ footer {
 
   .contact-info p {
     color: #f1f5f9;
-  }
-}
-/* Logo AdaKami */
-.logo-image {
-  width: 260px;
-  max-width: 90%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-/* Banner agar tidak terpotong */
-.hero-content {
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-.hero-image-container {
-  position: relative;
-  animation: slideInRight 0.7s ease-out;
-  border-radius: 16px;
-  overflow: visible;
-  height: auto;
-}
-
-.hero-image {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 16px;
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .hero-image-container {
-    height: auto;
   }
 }
