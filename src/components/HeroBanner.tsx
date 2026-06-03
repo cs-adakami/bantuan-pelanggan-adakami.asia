@@ -5,7 +5,7 @@ export default function HeroBanner() {
     <div className="hero-banner">
       <div className="hero-content">
         <div className="hero-text">
-          <h2 className="hero-title">Butuh Bantuan?</h2>
+          
           <p className="hero-subtitle">Tim kami siap membantu Anda kapan saja melalui WhatsApp</p>
         </div>
         <div className="hero-image-wrapper">
