@@ -1,0 +1,43 @@
+/* Anti-Scraping & Text Selection Prevention */
+/* This file prevents casual text selection and copying via CSS only */
+/* No DOM manipulation is used */
+
+body {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Allow selection for specific interactive elements */
+input,
+textarea,
+select {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+/* Disable text dragging and selection effects */
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+}
+
+/* Disable right-click context menu (note: this can be bypassed) */
+/* Using CSS only - no JavaScript interference */
+html {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow users to select button text and links if they really want to */
+a, button, [role="button"] {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
