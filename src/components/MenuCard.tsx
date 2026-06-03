@@ -1,47 +1,95 @@
+import { useEffect, useRef } from 'react';
+import {
+  ShieldCheck,
+  Headset,
+  FileText,
+  MessagesSquare,
+} from 'lucide-react';
 import { contactConfig } from '../config/contact';
-import * as Icons from 'lucide-react';
-
-type IconName = keyof typeof Icons;
 
 export default function MenuCard() {
-  const handleWhatsAppClick = (menuItem: typeof contactConfig.menuItems[0]) => {
-    const message = `${contactConfig.whatsappMessage} (${menuItem.title})`;
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${contactConfig.whatsappNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-  };
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-  const getIconComponent = (iconName: string) => {
-    const Icon = Icons[iconName as IconName];
-    return Icon ? <Icon className="menu-item-icon" /> : null;
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px',
+      }
+    );
+
+    const items = sectionRef.current?.querySelectorAll('.service-card');
+    items?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const whatsappLink = `https://wa.me/${contactConfig.whatsappNumber}?text=${encodeURIComponent(
+    contactConfig.whatsappMessage
+  )}`;
+
+  const services = [
+    {
+      icon: ShieldCheck,
+      title: 'Informasi Akun',
+      description: 'Verifikasi akun dan pengecekan status layanan pengguna.',
+    },
+    {
+      icon: Headset,
+      title: 'Dukungan Teknis',
+      description: 'Bantuan masalah aplikasi, sistem, atau akses layanan.',
+    },
+    {
+      icon: FileText,
+      title: 'Panduan Penggunaan',
+      description: 'Penjelasan alur dan cara penggunaan layanan secara benar.',
+    },
+    {
+      icon: MessagesSquare,
+      title: 'Laporan & Masukan',
+      description: 'Kirim laporan kendala atau saran perbaikan layanan.',
+    },
+  ];
 
   return (
-    <div className="menu-section">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">Bantuan Layanan</h2>
-      <div className="menu-grid">
-        {contactConfig.menuItems.map((item) => (
-          <div
-            key={item.id}
-            className="menu-item"
-            onClick={() => handleWhatsAppClick(item)}
-            role="button"
-            tabIndex={0}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                handleWhatsAppClick(item);
-              }
-            }}
-          >
-            <div className="flex items-start gap-2">
-              {getIconComponent(item.icon)}
-              <div className="flex-1">
+    <div className="service-section" ref={sectionRef}>
+      <div className="service-header">
+        <h2>Layanan Dukungan</h2>
+        <p>Pilih layanan yang sesuai kebutuhan Anda</p>
+      </div>
+
+      <div className="service-grid">
+        {services.map((item, index) => {
+          const Icon = item.icon;
+
+          return (
+            <a
+              key={index}
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="service-card"
+              style={{ animationDelay: `${index * 0.12}s` }}
+            >
+              <div className="service-icon">
+                <Icon size={24} />
+              </div>
+
+              <div className="service-content">
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </div>
-            </div>
-          </div>
-        ))}
+            </a>
+          );
+        })}
       </div>
     </div>
   );
