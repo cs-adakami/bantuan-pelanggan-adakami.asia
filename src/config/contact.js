@@ -1,15 +1,15 @@
 export const contactConfig = {
   whatsappNumber: '62812312456',
   whatsappMessage: 'Hallo Adakami, saya memerlukan bantuan dengan layanan Anda.',
-  displayPhone: '+62 812-3124-56',
+  displayPhone: '+62 812-312-456',
   serviceName: 'Layanan Adakami',
   pageTitle: 'Pusat Layanan Bantuan Adakami',
-  pageSubtitle: 'Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.',
+  pageSubtitle: 'Platform dukungan independen untuk panduan sistem, edukasi pengguna, dan penyelesaian kendala teknis yang aman, cepat, dan profesional.',
   address: 'Indonesia',
   logoImage: './logo.png',
   bannerImage: './banner.png',
   aboutTitle: 'Tentang Kami',
-  aboutText: 'Kami menyediakan halaman informasi bantuan layanan yang mudah diakses, responsif, dan terhubung ke WhatsApp untuk memudahkan pengunjung menghubungi kami dengan cepat dan mudah.',
+  aboutText: 'Pusat layanan mandiri yang didedikasikan untuk memberikan edukasi, panduan sistem, dan penyelesaian kendala pengquna secara transparan.',
   footerText: '© 2026 Pusat Layanan Bantuan Adakami. Seluruh hak cipta dilindungi.',
   siteUrl: 'https://bantuan-pelanggan-adakami.asia',
   menuItems: [
