@@ -29,7 +29,7 @@ export default function InfoCard() {
             <Phone size={18} />
             <div>
               <p>Nomor WhatsApp</p>
-              <button onClick={copyNumber}>Salin Nomor</button>
+              <button onClick={copyNumber}>0812312456</button>
             </div>
           </div>
 
