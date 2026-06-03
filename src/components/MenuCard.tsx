@@ -9,27 +9,27 @@ export default function MenuCard() {
   const menuItems = [
     {
       title: 'Informasi Akun',
-      description: 'Bantuan verifikasi status akun dan akses sistem.',
+      description: 'Bantuan verifikasi status akun dan akses layanan.',
     },
     {
       title: 'Dukungan Teknis',
-      description: 'Bantuan kendala aplikasi dan error sistem.',
+      description: 'Bantuan masalah aplikasi atau sistem.',
     },
     {
       title: 'Panduan Penggunaan',
-      description: 'Penjelasan cara penggunaan layanan dengan benar.',
+      description: 'Petunjuk penggunaan layanan.',
     },
     {
       title: 'Laporan & Masukan',
-      description: 'Kirim laporan atau saran untuk perbaikan layanan.',
+      description: 'Kirim laporan atau saran.',
     },
     {
       title: 'Keamanan',
-      description: 'Informasi terkait keamanan data dan privasi.',
+      description: 'Informasi keamanan data.',
     },
     {
       title: 'Konsultasi',
-      description: 'Hubungi tim untuk konsultasi langsung.',
+      description: 'Hubungi tim layanan.',
     },
   ];
 
@@ -44,7 +44,7 @@ export default function MenuCard() {
           className="menu-item"
         >
           <div className="menu-item-icon">
-            <MessageCircle size={22} />
+            <MessageCircle size={20} />
           </div>
 
           <div>
