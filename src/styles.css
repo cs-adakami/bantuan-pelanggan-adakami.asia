@@ -658,3 +658,39 @@ footer {
     color: #f1f5f9;
   }
 }
+/* Logo AdaKami */
+.logo-image {
+  width: 260px;
+  max-width: 90%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Banner agar tidak terpotong */
+.hero-content {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.hero-image-container {
+  position: relative;
+  animation: slideInRight 0.7s ease-out;
+  border-radius: 16px;
+  overflow: visible;
+  height: auto;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hero-image-container {
+    height: auto;
+  }
+}
