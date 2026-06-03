@@ -256,3 +256,24 @@ footer {
   object-fit: cover;
   display: block;
 }
+.hero-image-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.banner-img-responsive {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .hero-image-wrapper {
+    margin-top: 1.5rem;
+  }
+}
