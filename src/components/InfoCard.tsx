@@ -21,33 +21,51 @@ export default function InfoCard() {
       </div>
 
       <div className="info-block">
-        <h3 className="text-gray-800 font-semibold mb-3">Informasi Kontak</h3>
+        <h3 style={{ marginBottom: '12px', fontWeight: 600 }}>
+          Informasi Kontak
+        </h3>
 
         <div className="contact-info">
 
-          <div className="flex items-start gap-2 mb-3">
-            <Phone className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+          <div style={{ display: 'flex', gap: '10px', marginBottom: '14px', alignItems: 'flex-start' }}>
+            <Phone size={20} color="#059669" />
 
             <div>
-              <p className="text-sm text-gray-600">Nomor WhatsApp</p>
+              <p style={{ fontSize: '13px', color: '#6b7280', margin: 0 }}>
+                Nomor WhatsApp
+              </p>
 
               <button
                 onClick={copyNumber}
-                className="text-base text-left text-green-700 font-medium"
-                style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+                style={{
+                  display: 'block',
+                  marginTop: '4px',
+                  background: 'none',
+                  border: 'none',
+                  padding: 0,
+                  cursor: 'pointer',
+                  color: '#047857',
+                  fontWeight: 600,
+                  fontSize: '15px',
+                  textAlign: 'left'
+                }}
               >
                 Salin Nomor
               </button>
             </div>
-
           </div>
 
-          <div className="flex items-start gap-2">
-            <MapPin className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+            <MapPin size={20} color="#059669" />
 
             <div>
-              <p className="text-sm text-gray-600">Lokasi</p>
-              <p className="text-base">{contactConfig.address}</p>
+              <p style={{ fontSize: '13px', color: '#6b7280', margin: 0 }}>
+                Lokasi
+              </p>
+
+              <p style={{ marginTop: '4px', fontSize: '15px' }}>
+                {contactConfig.address}
+              </p>
             </div>
           </div>
 
@@ -55,7 +73,7 @@ export default function InfoCard() {
       </div>
 
       <div className="info-block">
-        <p className="text-sm text-gray-600 italic">
+        <p style={{ fontSize: '13px', color: '#6b7280', fontStyle: 'italic', margin: 0 }}>
           Hubungi kami melalui WhatsApp untuk respons cepat dan konsultasi gratis tentang layanan kami.
         </p>
       </div>
