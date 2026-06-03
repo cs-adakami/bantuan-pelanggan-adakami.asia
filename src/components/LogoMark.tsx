@@ -3,7 +3,7 @@ export default function LogoMark() {
     <div className="logo-mark flex items-center justify-center mb-6 lg:mb-8">
       <img
         src="/logo.png"
-        alt="Adakami"
+        alt="AdaKami"
         className="logo-image"
       />
     </div>
