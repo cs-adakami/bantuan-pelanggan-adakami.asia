@@ -1,7 +1,7 @@
 export const contactConfig = {
-  whatsappNumber: '62812312456',
+  whatsappNumber: '62822165151',
   whatsappMessage: 'Hallo Adakami, saya memerlukan bantuan dengan layanan Anda.',
-  displayPhone: '+62 812-312-456',
+  displayPhone: '+62 822-165-151',
   serviceName: 'Layanan Adakami',
   pageTitle: 'Layanan Bantuan Adakami',
   pageSubtitle: 'Platform dukungan independen untuk panduan sistem, edukasi pengguna, dan penyelesaian kendala teknis yang aman, cepat, dan profesional.',
