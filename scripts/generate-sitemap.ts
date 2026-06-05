@@ -9,7 +9,7 @@ interface UrlEntry {
 }
 
 const SITE_URL = 'https://bantuan-pelanggan-adakami.asia';
-const PUBLIC_DIR = path.join(__dirname, '../public');
+const PUBLIC_DIR = path.join(process.cwd(), 'public');
 
 // Define all URLs for your site
 const urls: UrlEntry[] = [
