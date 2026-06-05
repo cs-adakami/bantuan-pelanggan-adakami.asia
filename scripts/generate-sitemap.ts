@@ -11,6 +11,16 @@ interface UrlEntry {
 const SITE_URL = 'https://bantuan-pelanggan-adakami.asia';
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 
+// Menu items dari config
+const menuItems = [
+  'general',
+  'account',
+  'payment',
+  'consultation',
+  'technical',
+  'security',
+];
+
 // Define all URLs for your site
 const urls: UrlEntry[] = [
   {
@@ -19,15 +29,16 @@ const urls: UrlEntry[] = [
     changefreq: 'weekly',
     priority: 1.0,
   },
-  {
-    loc: `${SITE_URL}/`,
+  // Add hash routes for each menu item (SPA navigation)
+  ...menuItems.map((item) => ({
+    loc: `${SITE_URL}/#${item}`,
     lastmod: new Date().toISOString().split('T')[0],
-    changefreq: 'weekly',
-    priority: 0.9,
-  },
+    changefreq: 'monthly' as const,
+    priority: 0.8,
+  })),
 ];
 
-// Generate XML
+// Generate XML Sitemap
 function generateSitemap(urls: UrlEntry[]): string {
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
@@ -43,6 +54,23 @@ function generateSitemap(urls: UrlEntry[]): string {
 
   xml += '</urlset>\n';
   return xml;
+}
+
+// Generate robots.txt
+function generateRobots(): string {
+  return `# Robots.txt for bantuan-pelanggan-adakami.asia
+
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Sitemap
+Sitemap: https://bantuan-pelanggan-adakami.asia/sitemap.xml
+
+# Crawl delay (optional, adjust as needed)
+Crawl-delay: 1
+`;
 }
 
 // Escape XML special characters
@@ -62,11 +90,18 @@ function main() {
     fs.mkdirSync(PUBLIC_DIR, { recursive: true });
   }
 
+  // Generate and write sitemap
   const sitemap = generateSitemap(urls);
   const sitemapPath = path.join(PUBLIC_DIR, 'sitemap.xml');
-
   fs.writeFileSync(sitemapPath, sitemap, 'utf-8');
-  console.log(`✅ Sitemap generated successfully at ${sitemapPath}`);
+  console.log(`✅ Sitemap generated at ${sitemapPath}`);
+  console.log(`   📄 Total URLs: ${urls.length}`);
+
+  // Generate and write robots.txt
+  const robots = generateRobots();
+  const robotsPath = path.join(PUBLIC_DIR, 'robots.txt');
+  fs.writeFileSync(robotsPath, robots, 'utf-8');
+  console.log(`✅ Robots.txt generated at ${robotsPath}`);
 }
 
 main();
