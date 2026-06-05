@@ -1,33 +1,21 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import fs from 'fs';
-import path from 'path';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { execSync } from 'child_process'
 
-// https://vitejs.dev/config/
+// Generate sitemap on build
 export default defineConfig({
-  base: './',
   plugins: [
     react(),
     {
-      name: 'copy-static-files',
+      name: 'generate-sitemap',
       apply: 'build',
-      closeBundle() {
-        const files = ['logo.png', 'banner.png', 'sitemap.xml', 'robots.txt'];
-        const distDir = 'dist';
-
-        files.forEach((file) => {
-          const srcPath = path.join(process.cwd(), file);
-          const destPath = path.join(process.cwd(), distDir, file);
-
-          if (fs.existsSync(srcPath)) {
-            fs.copyFileSync(srcPath, destPath);
-            console.log(`Copied ${file} to dist/`);
-          }
-        });
+      writeBundle() {
+        try {
+          execSync('npx ts-node scripts/generate-sitemap.ts', { stdio: 'inherit' })
+        } catch (error) {
+          console.error('Failed to generate sitemap:', error)
+        }
       },
     },
   ],
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
-});
+})
